@@ -6,5 +6,5 @@ mkdir -p $KONTROL_CERTS
 
 env
 
-exec /go/bin/client $@
+exec /go/bin/microservice $@
 
