@@ -10,11 +10,11 @@ func main() {
 	k := kite.New("client", "1.0.0")
 
 	// search a kite that has the same username and environment as us, but the
-	// kite name should be "first"
+	// kite name should be "square"
 	kites, _ := k.GetKites(&protocol.KontrolQuery{
 		Username:    k.Config.Username,
 		Environment: k.Config.Environment,
-		Name:        "first",
+		Name:        "square",
 	})
 
 	// there might be several kites that matches our query
