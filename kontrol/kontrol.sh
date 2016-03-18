@@ -16,6 +16,8 @@ mkdir -p $KONTROL_CERTS
 [ -f $KONTROL_PRIVATEKEYFILE ] || openssl genrsa -out $KONTROL_PRIVATEKEYFILE 2048
 [ -f $KONTROL_PUBLICKEYFILE ] || openssl rsa -in $KONTROL_PRIVATEKEYFILE -pubout > $KONTROL_PUBLICKEYFILE
 
+env
+
 /go/bin/kontrol -initial || exit 1
 exec /go/bin/kontrol $@
 
