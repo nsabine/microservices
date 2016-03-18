@@ -18,5 +18,5 @@ mkdir -p $KONTROL_CERTS
 
 env
 
-exec /go/bin/square $@
+exec /go/bin/microservice $@
 
