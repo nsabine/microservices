@@ -13,5 +13,5 @@ RUN chmod -R 777 /srv/kite
 
 EXPOSE 6000
 
-ENTRYPOINT ["/srv/kite/kontrol.sh"]
+CMD ["/srv/kite/kontrol.sh"]
 
