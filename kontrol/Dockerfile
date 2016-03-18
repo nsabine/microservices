@@ -12,7 +12,7 @@ ADD kontrol.sh /srv/kite/kontrol.sh
 RUN chmod +x /srv/kite/kontrol.sh
 RUN chmod -R 777 /srv/kite
 
-EXPOSE 6000
+EXPOSE 6000 2379 4001
 
 CMD ["/srv/kite/kontrol.sh"]
 
