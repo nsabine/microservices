@@ -3,11 +3,13 @@ MAINTAINER Nick Sabine <nsabine@redhat.com>
 
 RUN yum -y install golang-bin git openssl && yum clean all
 ENV GOPATH=/go
+ENV KONTROL_HOME=/srv/kite
 
 RUN go get github.com/koding/kite/kontrol/kontrol
 
 ADD kontrol.sh /srv/kite/kontrol.sh
 RUN chmod +x /srv/kite/kontrol.sh
+RUN dhmod o+rwx /srv/kite
 
 EXPOSE 6000
 
