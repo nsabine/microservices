@@ -5,9 +5,9 @@ RUN yum -y install golang-bin git openssl && yum clean all
 ENV GOPATH /go
 ENV KITE_HOME /srv/kite
 
-ENV GOSRC ${GOPATH}/src/first
+ENV GOSRC ${GOPATH}/src/microservice
 RUN mkdir -p ${GOSRC}
-ADD ./first.go ${GOSRC}/
+ADD ./square.go ${GOSRC}/
 WORKDIR ${GOSRC}
 
 RUN go get github.com/koding/kite

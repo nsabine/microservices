@@ -18,5 +18,5 @@ mkdir -p $KONTROL_CERTS
 
 env
 
-exec /go/bin/first $@
+exec /go/bin/square $@
 
