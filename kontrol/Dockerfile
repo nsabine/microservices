@@ -9,7 +9,7 @@ RUN go get github.com/koding/kite/kontrol/kontrol
 
 ADD kontrol.sh /srv/kite/kontrol.sh
 RUN chmod +x /srv/kite/kontrol.sh
-RUN chmod o+rwx /srv/kite
+RUN chmod -R 777 /srv/kite
 
 EXPOSE 6000
 
