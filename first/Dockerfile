@@ -7,7 +7,7 @@ ENV KITE_HOME /srv/kite
 
 ENV GOSRC ${GOPATH}/src/first
 RUN mkdir -p ${GOSRC}
-ADD first.go ${GOSRC}
+ADD ./first.go ${GOSRC}/
 WORKDIR ${GOSRC}
 
 RUN go get github.com/koding/kite
