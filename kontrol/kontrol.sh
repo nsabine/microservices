@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export KONTROL_CERTS=$KONTROL_HOME/certs
+export KONTROL_CERTS=$KITE_HOME/certs
 export KONTROL_PORT=6000
 export KONTROL_USERNAME="openshift"
 export KONTROL_STORAGE="etcd"
@@ -9,7 +9,7 @@ export KONTROL_KONTROLURL="http://${MICROSERVICES_SERVICE_HOST}:6000/kite"
 export KONTROL_PUBLICKEYFILE="$KONTROL_CERTS/key_pub.pem"
 export KONTROL_PRIVATEKEYFILE="$KONTROL_CERTS/key.pem"
 
-mkdir -p $KONTROL_HOME
+mkdir -p $KITE_HOME
 mkdir -p $KONTROL_CERTS
 
 
