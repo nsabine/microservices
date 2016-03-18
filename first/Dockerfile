@@ -5,10 +5,10 @@ RUN yum -y install golang-bin git openssl && yum clean all
 ENV GOPATH /go
 ENV KITE_HOME /srv/kite
 
-ENV GO_SRC /go/src/first
-RUN mkdir -p ${GO_SRC}
-ADD first.go ${GO_SRC}
-WORKDIR ${GO_SRC}
+ENV GOSRC ${GOPATH}/src/first
+RUN mkdir -p ${GOSRC}
+ADD first.go ${GOSRC}
+WORKDIR ${GOSRC}
 
 RUN go get github.com/koding/kite
 RUN go install
