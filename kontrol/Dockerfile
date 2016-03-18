@@ -9,12 +9,10 @@ RUN go get github.com/koding/kite/kontrol/kontrol
 
 ADD kontrol.sh /srv/kite/kontrol.sh
 
-RUN useradd -u 10000 kontrol
 RUN chmod +x /srv/kite/kontrol.sh
-RUN chown -R kontrol /srv/kite
+RUN chmod -R 777 /srv/kite
 
 EXPOSE 6000
-USER  kontrol
 
 CMD ["/srv/kite/kontrol.sh"]
 
