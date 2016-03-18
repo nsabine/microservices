@@ -1,6 +1,5 @@
 #!/bin/sh
 
-export KONTROL_HOME=/srv/kite
 export KONTROL_CERTS=$KONTROL_HOME/certs
 export KONTROL_PORT=6000
 export KONTROL_USERNAME="kontrol"
