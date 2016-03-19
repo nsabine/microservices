@@ -12,7 +12,7 @@ func main() {
 
 	fmt.Println(k.Config)
 
-	client := k.NewClient("http://" + or.Getenv("SQUARE_SERVICE_HOST")  + ":" + or.Getenv("SQUARE_SERVICE_PORT") + "/kite")
+	client := k.NewClient("http://" + os.Getenv("SQUARE_SERVICE_HOST")  + ":" + os.Getenv("SQUARE_SERVICE_PORT") + "/kite")
 	connected, err := client.Dial()
 	if err != nil {
 		k.Log.Fatal(err.Error())
