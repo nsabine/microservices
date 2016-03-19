@@ -19,5 +19,6 @@ mkdir -p $KONTROL_CERTS
 
 env
 
+exec /go/bin/kitectl register -to=$KITE_KONTROL_URL -username=$KITE_USERNAME
 exec /go/bin/microservice $@
 
