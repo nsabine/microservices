@@ -8,6 +8,7 @@ import (
 
 func main() {
 	k := kite.New("client", "1.0.0")
+	fmt.Println(k.Config)
 
 	// search a kite that has the same username and environment as us, but the
 	// kite name should be "square"
