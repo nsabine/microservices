@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/koding/kite"
 	"github.com/koding/kite/protocol"
+	"os"
 )
 
 func main() {
