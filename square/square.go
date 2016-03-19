@@ -12,6 +12,7 @@ func main() {
         k.Config.KontrolURL=os.Getenv("KITE_KONTROL_URL")
         k.Config.Username=os.Getenv("KITE_USERNAME")
         k.Config.Environment=os.Getenv("KITE_ENVIRONMENT")
+	k.Config.DisableAuthentication = true
 
 	k.HandleFunc("square", func(r *kite.Request) (interface{}, error) {
 		a := r.Args.One().MustFloat64()
