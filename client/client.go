@@ -16,7 +16,7 @@ func main() {
 	client = k.NewClient("http://square.openshiftapps.com:6001/kite")
 	client.Dial()
 	
-	response, err := fetchedKite.Tell("square", 4)
+	response, err := client.Tell("square", 4)
 	if err != nil {
 		panic(err)
 	}
