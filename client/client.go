@@ -24,9 +24,13 @@ func main() {
 	})
 
 	// there might be several kites that matches our query
-	client := kites[0]
-	client.Dial()
+	for _, fetchedKite := range kites {
+		fetchedKite.Dial()
 
-	response, _ := client.Tell("square", 4)
-	fmt.Println(response.MustFloat64())
+		response, err := fetchedKite.Tell("square", 4)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println(response.MustFloat64())
+	}
 }
