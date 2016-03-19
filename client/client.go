@@ -13,7 +13,7 @@ func main() {
 
 	fmt.Println(k.Config)
 
-	client = k.NewClient("http://square.openshiftapps.com:6001/kite")
+	client := k.NewClient("http://square.openshiftapps.com:6001/kite")
 	client.Dial()
 	
 	response, err := client.Tell("square", 4)
