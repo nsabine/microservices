@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/koding/kite"
+	"os"
 )
 
 func main() {
@@ -11,8 +12,8 @@ func main() {
 
 	fmt.Println(k.Config)
 
-	client := k.NewClient("http://square.openshiftapps.com:6001/kite")
-	connected, err := client.DialForever()
+	client := k.NewClient("http://" + or.Getenv("SQUARE_SERVICE_HOST")  + ":" + or.Getenv("SQUARE_SERVICE_PORT") + "/kite")
+	connected, err := client.Dial()
 	if err != nil {
 		k.Log.Fatal(err.Error())
 	}
