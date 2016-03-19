@@ -8,5 +8,9 @@ mkdir -p $KITE_HOME
 
 env
 
+#echo "Registering"
+#exec /go/bin/kitectl register -to=$KITE_KONTROL_URL -username=$KITE_USERNAME
+
+echo "Starting Microservice"
 exec /go/bin/microservice $@
 
