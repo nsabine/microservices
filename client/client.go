@@ -8,6 +8,10 @@ import (
 
 func main() {
 	k := kite.New("client", "1.0.0")
+	k.Config.KontrolURL=os.Getenv("KITE_KONTROL_URL")
+	k.Config.Username=os.Getenv("KITE_USERNAME")
+	k.Config.Environment=os.Getenv("KITE_ENVIRONMENT")
+	
 	fmt.Println(k.Config)
 
 	// search a kite that has the same username and environment as us, but the
