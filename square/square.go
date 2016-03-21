@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/koding/kite"
+	"fmt"
 )
 
 func main() {
@@ -10,6 +11,7 @@ func main() {
 	k.Config.DisableAuthentication = true
 
 	k.HandleFunc("square", func(r *kite.Request) (interface{}, error) {
+		fmt.Println("Handling request....")
 		a := r.Args.One().MustFloat64()
 		return a * a, nil
 	})
