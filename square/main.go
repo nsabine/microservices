@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/koding/kite"
 	"fmt"
-	"github.com/nsabine/microservices/square"
+	"github.com/nsabine/microservices/square/squarelib"
 )
 
 func main() {

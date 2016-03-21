@@ -5,7 +5,7 @@ import (
 	"github.com/koding/kite"
 	"os"
 	"time"
-	"github.com/nsabine/microservices/square/lib"
+	"github.com/nsabine/microservices/square/squarelib"
 )
 
 func main() {

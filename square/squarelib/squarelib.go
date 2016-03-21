@@ -1,4 +1,4 @@
-package square
+package squarelib
 
 type SquareRequest struct {
 	Number int
