@@ -23,13 +23,13 @@ func main() {
 	<-connected
 
 	requestNum := 0
-	for true {
+	for {
 		response, err := client.Tell("square", 4)
 		if err != nil {
 			panic(err)
 		}
 		requestNum := requestNum + 1
-		fmt.Println("Request: " + requestNum + ", Response: " + response.MustFloat64())
+		fmt.Printf("Request: %d, Response: %f", requestNum , response.MustFloat64())
 		time.Sleep(time.Second * 1)
 	}
 }

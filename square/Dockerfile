@@ -7,12 +7,12 @@ ENV KITE_HOME /srv/kite
 
 ENV GOSRC ${GOPATH}/src/microservice
 RUN mkdir -p ${GOSRC}
-ADD ./*.go ${GOSRC}/
 
 RUN go get github.com/koding/kite
 RUN go get github.com/mitchellh/cli
 
 WORKDIR ${GOPATH}/src/github.com/koding/kite/kitectl
+ADD ./*.go ${GOSRC}/
 RUN go install
 
 WORKDIR ${GOSRC}
