@@ -10,6 +10,7 @@ RUN mkdir -p ${GOSRC}
 WORKDIR ${GOSRC}
 
 RUN go get github.com/koding/kite
+RUN go get github.com/nsabine/microservices/square
 
 ADD *.go ${GOSRC}/
 RUN go install
