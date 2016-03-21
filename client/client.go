@@ -25,7 +25,7 @@ func main() {
 
 	requestNum := 0
 	for {
-		response, err := client.Tell("square", &square.Request{
+		response, err := client.Tell("square", &SquareRequest{
 			Number: 4,
 			Name: "square-client",
 		})
