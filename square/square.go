@@ -1,8 +1,6 @@
 package main
 
 import (
-	"net/url"
-        "os"
 	"github.com/koding/kite"
 )
 
