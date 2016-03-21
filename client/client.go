@@ -5,6 +5,7 @@ import (
 	"github.com/koding/kite"
 	"os"
 	"time"
+	"github.com/nsabine/microservices/square"
 )
 
 func main() {
@@ -24,7 +25,10 @@ func main() {
 
 	requestNum := 0
 	for {
-		response, err := client.Tell("square", 4)
+		response, err := client.Tell("square", &square.Request{
+			Number: 4,
+			Name: "square-client",
+		})
 		if err != nil {
 			panic(err)
 		}
