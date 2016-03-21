@@ -28,7 +28,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		requestNum := requestNum + 1
+		requestNum++
 		fmt.Printf("Request: %d, Response: %f\n", requestNum , response.MustFloat64())
 		time.Sleep(time.Second * 1)
 	}
