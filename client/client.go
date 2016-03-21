@@ -20,10 +20,11 @@ func main() {
 
 	// Wait until connected
 	<-connected
-	
-	response, err := client.Tell("square", 4)
-	if err != nil {
-		panic(err)
+	for true {
+		response, err := client.Tell("square", 4)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println(response.MustFloat64())
 	}
-	fmt.Println(response.MustFloat64())
 }
