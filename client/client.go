@@ -29,7 +29,7 @@ func main() {
 			panic(err)
 		}
 		requestNum := requestNum + 1
-		fmt.Printf("Request: %d, Response: %f", requestNum , response.MustFloat64())
+		fmt.Printf("Request: %d, Response: %f\n", requestNum , response.MustFloat64())
 		time.Sleep(time.Second * 1)
 	}
 }
