@@ -16,7 +16,7 @@ func main() {
 
 func square(r *kite.Request) (interface{}, error) {
 	// Unmarshal method arguments.
-	var params SquareRequest
+	var params squarelib.SquareRequest
 	if err := r.Args.One().Unmarshal(&params); err != nil {
 		return nil, err
 	}
