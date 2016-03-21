@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/koding/kite"
 	"os"
+	"time"
 )
 
 func main() {
@@ -20,11 +21,15 @@ func main() {
 
 	// Wait until connected
 	<-connected
+
+	requestNum := 0
 	for true {
 		response, err := client.Tell("square", 4)
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(response.MustFloat64())
+		requestNum := requestNum + 1
+		fmt.Println("Request: " + requestNum + ", Response: " + response.MustFloat64())
+		time.Sleep(time.Second * 1)
 	}
 }
