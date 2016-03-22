@@ -40,12 +40,12 @@ func WhereAmI(GameState [][]UpdateRequest, me UpdateRequest) (int, int) {
 	return -1, -1
 }
 
-func WhereNearest(GameState [][]UpdateRequest, me UpdateRequest, type string) (UpdateRequest) {
-	nearest := UpdateRequest{"Empty", type, 0, 0}
+func WhereNearest(GameState [][]UpdateRequest, me UpdateRequest, mytype string) (UpdateRequest) {
+	nearest := UpdateRequest{"Empty", mytype, 0, 0}
 	nearestDistance := XSize
         for i := range GameState {
                 for j := range GameState[i] {
-			if type == GameState[i][j].Type {
+			if mytype == GameState[i][j].Type {
 				distance = CalculateDistance(me, GameState[i][j]
 				if distance < nearestDistance {
 					nearestDistance = distance
