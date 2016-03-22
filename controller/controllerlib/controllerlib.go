@@ -43,6 +43,7 @@ func WhereAmI(GameState [][]UpdateRequest, me UpdateRequest) (int, int) {
 func WhereNearest(GameState [][]UpdateRequest, me UpdateRequest, mytype string) (UpdateRequest) {
 	nearest := UpdateRequest{"Empty", mytype, 0, 0}
 	nearestDistance := XSize
+	var distance int
         for i := range GameState {
                 for j := range GameState[i] {
 			if mytype == GameState[i][j].Type {
@@ -58,8 +59,8 @@ func WhereNearest(GameState [][]UpdateRequest, me UpdateRequest, mytype string) 
 }
 
 func CalculateDistance(me UpdateRequest, them UpdateRequest) (int) {
-	xDistance = math.Abs(them.XPos - me.XPos)
-	yDistance = math.Abs(them.YPos - me.YPos)
+	xDistance = int(math.Abs(float64(them.XPos - me.XPos)))
+	yDistance = int(math.Abs(float64(them.YPos - me.YPos)))
 	distance = math.Sqrt(math.Pow(xDistance, 2) + math.Pow(yDistance, 2))
 	return int(distance)
 }
