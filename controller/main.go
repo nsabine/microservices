@@ -84,6 +84,7 @@ func update(r *kite.Request) (interface{}, error) {
         r.Client.Go("kite.log", fmt.Sprintf("Message from %s: Update received", r.LocalKite.Kite().Name))
 
 	x,y := controllerlib.WhereAmI(GameState, params)
+	fmt.Println(params.MyName, "was here:", x, y)
 	GameState[x][y] = controllerlib.UpdateRequest{"Empty","Empty",x,y}
 	GameState[params.XPos][params.YPos] = params
 
@@ -111,7 +112,7 @@ func reset() {
 func evaluate() {
 	fmt.Println("Evaluting Game State")
 	for i := 0; i<controllerlib.XSize+2; i++ {
-		fmt.Print("-")
+		fmt.Print("---")
 	}
 	fmt.Println()
 	for i := range GameState {
@@ -122,7 +123,7 @@ func evaluate() {
 		fmt.Println("|")
 	}
 	for i := 0; i<controllerlib.XSize+2; i++ {
-		fmt.Print("-")
+		fmt.Print("---")
 	}
 	fmt.Println()
 }
