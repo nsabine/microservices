@@ -74,7 +74,7 @@ func hello(r *kite.Request) (interface{}, error) {
 }
 
 func tick() {
-	response, err := client.Tell("update", &controllerlib.UpdateRequest{
+	_, err := client.Tell("update", &controllerlib.UpdateRequest{
 		Id: 1,
 		Type: "robber",
 		XPos: 1,
