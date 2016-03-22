@@ -50,6 +50,7 @@ func WhereNearest(GameState [][]UpdateRequest, me UpdateRequest, mytype string) 
 				if distance < nearestDistance {
 					nearestDistance = distance
 					nearest = GameState[i][j]
+				}
 			}
                 }
         }
