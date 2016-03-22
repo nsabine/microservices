@@ -109,10 +109,10 @@ func tick() {
 
 	// make sure we didn't leave the board
 	if x<0 {
-		x = controllerlib.XSize
+		x = controllerlib.XSize-1
 	}
 	if y<0 {
-		y = controllerlib.YSize
+		y = controllerlib.YSize-1
 	}
 	if x==controllerlib.XSize-1 {
 		x = 0
