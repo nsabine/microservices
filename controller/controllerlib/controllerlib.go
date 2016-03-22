@@ -1,7 +1,7 @@
 package controllerlib
 
 type UpdateRequest struct {
-	Id 	int
+	Name 	string
 	Type	string
 	XPos	int
 	YPos	int
