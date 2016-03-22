@@ -74,11 +74,23 @@ func hello(r *kite.Request) (interface{}, error) {
 }
 
 func tick() {
-	_, err := client.Tell("update", &controllerlib.UpdateRequest{
+	GameState := client.Tell("getState")
+	x,y := controllerLib.WhereAmI(GameState, os.Getenv("HOSTNAME"))
+	if (x<controllerlib.XSize) {
+		x++
+	} else {
+		x--
+	}
+	if (y<controllerlib.YSize) {
+		y++
+	} else {
+		y--
+	}
+	err := client.Tell("update", &controllerlib.UpdateRequest{
 		MyName: os.Getenv("HOSTNAME"),
 		Type: "Robber",
-		XPos: 1,
-		YPos: 2,
+		XPos: x,
+		YPos: y,
 	})
 	if err != nil {
 		panic(err)

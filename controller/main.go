@@ -13,13 +13,9 @@ import (
 )
 
 var GameState [][]controllerlib.UpdateRequest
-var XSize int
-var YSize int
 
 func main() {
 	fmt.Println("Starting Controller")
-	XSize = 25
-	YSize = 25
 	reset()
 	evaluate()
 	runtime.GOMAXPROCS(2)
@@ -100,10 +96,10 @@ func getState(r *kite.Request) (interface{}, error) {
 func reset() {
 	fmt.Println("Resetting Game State")
 	// Allocate the top-level slice.
-	GameState = make([][]controllerlib.UpdateRequest, YSize) // One row per unit of y.
+	GameState = make([][]controllerlib.UpdateRequest, controllerlib.YSize) // One row per unit of y.
 	// Loop over the rows, allocating the slice for each row.
 	for i := range GameState {
-		GameState[i] = make([]controllerlib.UpdateRequest, XSize)
+		GameState[i] = make([]controllerlib.UpdateRequest, controllerlib.XSize)
 		for j := range GameState[i] {
 			GameState[i][j] = controllerlib.UpdateRequest{"Empty","Empty",i,j}
 		}
@@ -112,7 +108,7 @@ func reset() {
 
 func evaluate() {
 	fmt.Println("Evaluting Game State")
-	for i := 0; i<XSize+2; i++ {
+	for i := 0; i<controllerlib.XSize+2; i++ {
 		fmt.Print("-")
 	}
 	fmt.Println()
@@ -123,7 +119,7 @@ func evaluate() {
 		}
 		fmt.Println("|")
 	}
-	for i := 0; i<XSize+2; i++ {
+	for i := 0; i<controllerlib.XSize+2; i++ {
 		fmt.Print("-")
 	}
 	fmt.Println()

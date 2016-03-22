@@ -7,6 +7,10 @@ type UpdateRequest struct {
 	YPos	int
 }
 
+var XSize := 25
+var YSize := 25
+
+
 func GetGridCode(r UpdateRequest) string {
 	switch r.Type {
 		case "Empty":
