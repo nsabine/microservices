@@ -6,3 +6,16 @@ type UpdateRequest struct {
 	XPos	int
 	YPos	int
 }
+
+func GetGridCode(r UpdateRequest) string {
+	switch r.Type {
+		case "Empty":
+			return " "
+		case "Robber":
+			return "R"
+		case "Cop":
+			return "C"
+		default:
+			return "?"
+	}
+}

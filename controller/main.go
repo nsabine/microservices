@@ -105,7 +105,7 @@ func reset() {
 	for i := range GameState {
 		GameState[i] = make([]string, XSize)
 		for j := range GameState[i] {
-			GameState[i][j] = "X"
+			GameState[i][j] = UpdateRequest{nil,"Empty",i,j}
 		}
 	}
 }
@@ -114,7 +114,7 @@ func evaluate() {
 	fmt.Println("Evaluting Game State")
 	for i := range GameState {
 		for j := range GameState[i] {
-			fmt.Print(GameState[i][j] + " ")
+			fmt.Print(controllerlib.GetGridCode(GameState[i][j]) + " ")
 		}
 		fmt.Println()
 	}

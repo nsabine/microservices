@@ -76,7 +76,7 @@ func hello(r *kite.Request) (interface{}, error) {
 func tick() {
 	_, err := client.Tell("update", &controllerlib.UpdateRequest{
 		MyName: os.Getenv("HOSTNAME"),
-		Type: "robber",
+		Type: "Robber",
 		XPos: 1,
 		YPos: 2,
 	})
