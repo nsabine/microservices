@@ -9,7 +9,7 @@ ENV GOSRC ${GOPATH}/src/microservice
 RUN mkdir -p ${GOSRC}
 
 RUN go get github.com/koding/kite
-RUN go get github.com/bitly/go-nsq
+RUN go get github.com/bitly/go-nsq 
 RUN go get github.com/nsabine/microservices/controller
 
 WORKDIR ${GOSRC}
