@@ -29,7 +29,7 @@ func main() {
 		return nil
 	}))
 
-	err := q.ConnectToNSQD(os.Getenv("MESSAGING_SERVICE_HOST" + ":4150")
+	err := q.ConnectToNSQD(os.Getenv("MESSAGING_SERVICE_HOST" + ":4150"))
 	if err != nil {
 		log.Panic("Could not connect")
 	}
