@@ -36,6 +36,8 @@ func startKite() {
 	k.Config.Port = 6001
 	k.Config.DisableAuthentication = true
 	k.HandleFunc("hello", hello)
+	k.HandleFunc("getState", getState)
+	k.HandleFunc("update", update)
 	k.Run()
 }
 
