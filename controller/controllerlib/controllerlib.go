@@ -7,8 +7,8 @@ type UpdateRequest struct {
 	YPos	int
 }
 
-var XSize := 25
-var YSize := 25
+var XSize = 25
+var YSize = 25
 
 
 func GetGridCode(r UpdateRequest) string {
