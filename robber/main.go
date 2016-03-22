@@ -9,6 +9,7 @@ import (
 	"github.com/bitly/go-nsq"
 	"runtime"
         "github.com/nsabine/microservices/controller/controllerlib"
+	"math"
 
 )
 
@@ -106,6 +107,9 @@ func tick() {
 	} else {
 		y++
 	}
+
+	x = x + rand.Intn(1)
+	y = y + rand.Intn(1)
 
 	// make sure we didn't leave the board
 	if x<0 {
