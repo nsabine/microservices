@@ -1,7 +1,7 @@
 package controllerlib
 
 import (
-	"fmt"
+	"math"
 )
 
 type UpdateRequest struct {
@@ -29,7 +29,6 @@ func GetGridCode(r UpdateRequest) string {
 }
 
 func WhereAmI(GameState [][]UpdateRequest, me UpdateRequest) (int, int) {
-	fmt.Println("In controllerlib.WhereAmI")
         for i := range GameState {
                 for j := range GameState[i] {
 			//fmt.Println("Comparing: ", me.MyName, GameState[i][j].MyName)
@@ -39,4 +38,27 @@ func WhereAmI(GameState [][]UpdateRequest, me UpdateRequest) (int, int) {
                 }
         }
 	return -1, -1
+}
+
+func WhereNearest(GameState [][]UpdateRequest, me UpdateRequest, type string) (UpdateRequest) {
+	nearest := UpdateRequest{"Empty", type, 0, 0}
+	nearestDistance := XSize
+        for i := range GameState {
+                for j := range GameState[i] {
+			if type == GameState[i][j].Type {
+				distance = CalculateDistance(me, GameState[i][j]
+				if distance < nearestDistance {
+					nearestDistance = distance
+					nearest = GameState[i][j]
+			}
+                }
+        }
+	return nearest
+}
+
+func CalculateDistance(me UpdateRequest, them UpdateRequest) (int) {
+	xDistance = math.Abs(them.XPos - me.XPos)
+	yDistance = math.Abs(them.YPos - me.YPos)
+	distance = math.Sqrt(math.Pow(xDistance, 2) + math.Pow(yDistance, 2))
+	return int(distance)
 }

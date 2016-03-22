@@ -86,15 +86,33 @@ func tick() {
 		XPos: -1,
 		YPos: -1,
 	})
+
+	me := controllerlib.UpdateRequest{
+                MyName: os.Getenv("HOSTNAME"),
+                Type: "Robber",
+                XPos: x,
+                YPos: y,
+        }
+
         fmt.Println("I am here:", x, y)
-	if (x<controllerlib.XSize-1) {
-		x++
+	nearestCop := controllerlib.WhereNearest(GameState, me, "Cop")
+	if nearestCop.XPos > me.XPos {
+		x--
 	} else {
+		x++
+	}
+
+	// make sure we didn't leave the board
+	if x<0 {
+		x=0
+	}
+	if y<0 {
+		y=0
+	}
+	if x==controllerlib.XSize-1 {
 		x--
 	}
-	if (y<controllerlib.YSize-1) {
-		y++
-	} else {
+	if y==controllerlib.YSize-1 {
 		y--
 	}
 	_, err = client.Tell("update", &controllerlib.UpdateRequest{
