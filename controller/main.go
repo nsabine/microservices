@@ -12,11 +12,13 @@ import (
 )
 
 var GameState [][]uint8
-var XSize = 25
-var YSize = 25
+var XSize uint8
+var YSize uint8
 
 func main() {
 	fmt.Println("Starting Controller")
+	XSize = 25
+	YSize = 25
 	reset()
 	runtime.GOMAXPROCS(2)
 	wg := &sync.WaitGroup{}
