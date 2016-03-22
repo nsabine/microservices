@@ -108,8 +108,8 @@ func tick() {
 		y++
 	}
 
-	x = x + rand.Intn(1)
-	y = y + rand.Intn(1)
+	x = x + math.rand.Intn(1)
+	y = y + math.rand.Intn(1)
 
 	// make sure we didn't leave the board
 	if x<0 {
