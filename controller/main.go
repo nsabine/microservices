@@ -84,7 +84,7 @@ func update(r *kite.Request) (interface{}, error) {
         r.Client.Go("kite.log", fmt.Sprintf("Message from %s: Update received", r.LocalKite.Kite().Name))
 
 	x,y := controllerlib.WhereAmI(GameState, params)
-	GameState[i][j] = controllerlib.UpdateRequest{"Empty","Empty",x,y}
+	GameState[x][y] = controllerlib.UpdateRequest{"Empty","Empty",x,y}
 	GameState[params.XPos][params.YPos] = params
 
         return nil, nil
