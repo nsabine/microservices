@@ -32,7 +32,7 @@ func WhereAmI(GameState [][]UpdateRequest, me UpdateRequest) (int, int) {
 	fmt.Println("In controllerlib.WhereAmI")
         for i := range GameState {
                 for j := range GameState[i] {
-			fmt.Println("Comparing: ", me.MyName, GameState[i][jj].MyName)
+			fmt.Println("Comparing: ", me.MyName, GameState[i][j].MyName)
 			if me.MyName == GameState[i][j].MyName {
 				return GameState[i][j].XPos, GameState[i][j].YPos
 			}
