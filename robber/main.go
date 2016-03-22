@@ -22,7 +22,7 @@ func main() {
 	k.Config.Port = 6001
 	k.Config.DisableAuthentication = true
 
-        client = k.NewClient("http://" + os.Getenv("CONTROLLER_SERVICE_HOST")  + ":" os.Getenv("CONTROLLER_SERVICE_PORT") + "/kite")
+        client = k.NewClient("http://" + os.Getenv("CONTROLLER_SERVICE_HOST")  + ":" + os.Getenv("CONTROLLER_SERVICE_PORT") + "/kite")
         connected, err := client.DialForever()
         if err != nil {
                 k.Log.Fatal(err.Error())
