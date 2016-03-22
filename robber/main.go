@@ -77,7 +77,7 @@ func tick() {
 	result, err := client.Tell("getState")
         var GameState [][]controllerlib.UpdateRequest
         if err := result.Unmarshal(&GameState); err != nil {
-                return nil, err
+                panic(err)
         }
 
 	x,y := controllerlib.WhereAmI(GameState, controllerlib.UpdateRequest{
