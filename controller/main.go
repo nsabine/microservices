@@ -12,9 +12,9 @@ import (
 	"github.com/nsabine/microservices/controller/controllerlib"
 )
 
-var GameState [][]uint8
-var XSize uint8
-var YSize uint8
+var GameState [][]int
+var XSize int
+var YSize int
 
 func main() {
 	fmt.Println("Starting Controller")
@@ -98,10 +98,10 @@ func getState(r *kite.Request) (interface{}, error) {
 func reset() {
 	fmt.Println("Resetting Game State")
 	// Allocate the top-level slice.
-	GameState = make([][]uint8, YSize) // One row per unit of y.
+	GameState = make([][]int, YSize) // One row per unit of y.
 	// Loop over the rows, allocating the slice for each row.
 	for i := range GameState {
-		GameState[i] = make([]uint8, XSize)
+		GameState[i] = make([]int, XSize)
 		for j := range GameState[i] {
 			GameState[i][j] = 0
 		}
