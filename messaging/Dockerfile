@@ -1,3 +1,3 @@
 FROM nsqio/nsq
-RUN chmod 777 /data /etc/ssl/certs
-CMD /nsqd
+RUN mkdir /my-data && chmod 777 /my_data
+CMD /nsqd -data-path /my_data
