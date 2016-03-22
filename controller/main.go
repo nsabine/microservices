@@ -20,6 +20,7 @@ func main() {
 	XSize = 25
 	YSize = 25
 	reset()
+	evaluate()
 	runtime.GOMAXPROCS(2)
 	wg := &sync.WaitGroup{}
 	wg.Add(2)
