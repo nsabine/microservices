@@ -42,7 +42,7 @@ func WhereAmI(GameState [][]UpdateRequest, me UpdateRequest) (int, int) {
 
 func WhereNearest(GameState [][]UpdateRequest, me UpdateRequest, mytype string) (UpdateRequest) {
 	nearest := UpdateRequest{"Empty", mytype, 0, 0}
-	nearestDistance := XSize
+	nearestDistance := 100
 	var distance int
         for i := range GameState {
                 for j := range GameState[i] {
