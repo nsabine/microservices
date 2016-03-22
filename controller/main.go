@@ -92,7 +92,7 @@ func update(r *kite.Request) (error) {
         return nil
 }
 
-func getState(r *kite.Request) (UpdateRequest[][]) {
+func getState(r *kite.Request) ([][]controllerlib.UpdateRequest) {
         fmt.Println("Controller received state request")
         return GameState
 }
