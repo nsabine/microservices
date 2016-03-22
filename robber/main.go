@@ -10,15 +10,21 @@ import (
 )
 
 func main() {
+	go startMessaging()
+	go startKite()
+}
+
+func startKite() {
 	k := kite.New("robber", "1.0.0")
-	k.Config.Port = 6002
+	k.Config.Port = 6001
 	k.Config.DisableAuthentication = true
 	k.HandleFunc("hello", hello)
 	
-	fmt.Println("Robber staring kite")
+	fmt.Println("Robber starting kite")
 	k.Run()
+}
 
-	
+func startMessaging() {
 	fmt.Println("Robber configuring NSQ")
 	wg := &sync.WaitGroup{}
 	wg.Add(1)
@@ -37,8 +43,6 @@ func main() {
 	}
 	fmt.Println("Robber starting NSQ")
 	wg.Wait()
-
-
 }
 
 func hello(r *kite.Request) (interface{}, error) {
