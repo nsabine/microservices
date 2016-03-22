@@ -40,6 +40,8 @@ func startMessaging() {
 		return nil
 	}))
 
+	fmt.Println("Trying to connect to NSQ: " + os.Getenv("MESSAGING_SERVICE_HOST" + ":4150"))
+
 	err := q.ConnectToNSQD(os.Getenv("MESSAGING_SERVICE_HOST" + ":4150"))
 	if err != nil {
 		log.Panic("Could not connect")
