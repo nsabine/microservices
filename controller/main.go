@@ -85,6 +85,12 @@ func update(r *kite.Request) (interface{}, error) {
 
 	x,y := controllerlib.WhereAmI(GameState, params)
 	fmt.Println(params.MyName, "was here:", x, y)
+	if (x < 0) {
+		x = 0
+	}
+	if (y < 0) {
+		y = 0
+	}
 	GameState[x][y] = controllerlib.UpdateRequest{"Empty","Empty",x,y}
 	GameState[params.XPos][params.YPos] = params
 
