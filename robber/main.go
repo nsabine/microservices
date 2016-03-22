@@ -36,7 +36,7 @@ func startMessaging() {
 	config := nsq.NewConfig()
 	q, _ := nsq.NewConsumer("tick", "ch", config)
 	q.AddHandler(nsq.HandlerFunc(func(message *nsq.Message) error {
-		log.Printf("Got a message: %v", message)
+		log.Printf("Got a message: %s", message)
 		return nil
 	}))
 
