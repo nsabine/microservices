@@ -46,7 +46,7 @@ func WhereNearest(GameState [][]UpdateRequest, me UpdateRequest, mytype string) 
         for i := range GameState {
                 for j := range GameState[i] {
 			if mytype == GameState[i][j].Type {
-				distance = CalculateDistance(me, GameState[i][j]
+				distance = CalculateDistance(me, GameState[i][j])
 				if distance < nearestDistance {
 					nearestDistance = distance
 					nearest = GameState[i][j]
