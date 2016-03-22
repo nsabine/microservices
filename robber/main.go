@@ -75,7 +75,7 @@ func hello(r *kite.Request) (interface{}, error) {
 
 func tick() {
 	result, err := client.Tell("getState")
-        var GateState [][]controllerlib.UpdateRequest
+        var GameState [][]controllerlib.UpdateRequest
         if err := result.Unmarshal(&GameState); err != nil {
                 return nil, err
         }
