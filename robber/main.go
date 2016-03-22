@@ -46,5 +46,5 @@ func hello(r *kite.Request) (interface{}, error) {
 	fmt.Println("Robber got hello")
 
 	// You can return anything as result, as long as it is JSON marshalable.
-	return nil
+	return nil, nil
 }
