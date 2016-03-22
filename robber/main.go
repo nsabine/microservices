@@ -75,7 +75,12 @@ func hello(r *kite.Request) (interface{}, error) {
 
 func tick() {
 	GameState := client.Tell("getState")
-	x,y := controllerLib.WhereAmI(GameState, os.Getenv("HOSTNAME"))
+	x,y := controllerlib.WhereAmI(GameState, &controllerlib.UpdateRequest{
+		MyName: os.Getenv("HOSTNAME"),
+		Type: "Robber",
+		XPos: -1,
+		YPos: -1
+	})
 	if (x<controllerlib.XSize) {
 		x++
 	} else {
