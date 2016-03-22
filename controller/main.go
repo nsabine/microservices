@@ -12,7 +12,7 @@ import (
 	"github.com/nsabine/microservices/controller/controllerlib"
 )
 
-var GameState [][]int
+var GameState [][]string
 var XSize int
 var YSize int
 
@@ -81,13 +81,13 @@ func update(r *kite.Request) (interface{}, error) {
                 return nil, err
         }
 
-        fmt.Printf("Update received from '%s-%d'\n", params.Type, params.Id)
+        fmt.Printf("Update received from %s: %s'\n", params.Type, params.Name)
 
         // Print a log on remote Kite.
         // This message will be printed on client's console.
         r.Client.Go("kite.log", fmt.Sprintf("Message from %s: Update received", r.LocalKite.Kite().Name))
 
-	GameState[params.XPos][params.YPos] = params.Id
+	GameState[params.XPos][params.YPos] = params.Name
 
         return nil, nil
 }
@@ -105,7 +105,7 @@ func reset() {
 	for i := range GameState {
 		GameState[i] = make([]int, XSize)
 		for j := range GameState[i] {
-			GameState[i][j] = 0
+			GameState[i][j] = 'X'
 		}
 	}
 }
@@ -114,7 +114,7 @@ func evaluate() {
 	fmt.Println("Evaluting Game State")
 	for i := range GameState {
 		for j := range GameState[i] {
-			fmt.Print(GameState[i][j])
+			fmt.Print(GameState[i][j] + " ")
 		}
 		fmt.Println()
 	}
