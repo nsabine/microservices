@@ -12,7 +12,7 @@ import (
 	"github.com/nsabine/microservices/controller/controllerlib"
 )
 
-var GameState [][]string
+var GameState [][]controllerlib.UpdateRequest
 var XSize int
 var YSize int
 
@@ -105,7 +105,7 @@ func reset() {
 	for i := range GameState {
 		GameState[i] = make([]string, XSize)
 		for j := range GameState[i] {
-			GameState[i][j] = controllerlib.UpdateRequest{"","Empty",i,j}
+			GameState[i][j] = controllerlib.UpdateRequest{"Empty","Empty",i,j}
 		}
 	}
 }
