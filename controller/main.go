@@ -84,7 +84,7 @@ func reset() {
 	for i := range GameState {
 		GameState[i] = make([]uint8, XSize)
 		for j := range GameState[i] {
-			GameState[i][j] := 0
+			GameState[i][j] = 0
 		}
 	}
 }
