@@ -9,7 +9,7 @@ import (
 	"github.com/bitly/go-nsq"
 	"runtime"
         "github.com/nsabine/microservices/controller/controllerlib"
-	"math"
+	"math/rand"
 
 )
 
@@ -108,8 +108,8 @@ func tick() {
 		y++
 	}
 
-	x = x + math.rand.Intn(1)
-	y = y + math.rand.Intn(1)
+	x = x + rand.Intn(1)
+	y = y + rand.Intn(1)
 
 	// make sure we didn't leave the board
 	if x<0 {
