@@ -87,12 +87,12 @@ func tick() {
 		YPos: -1,
 	})
         fmt.Println("I am here:", x, y)
-	if (x<controllerlib.XSize) {
+	if (x<controllerlib.XSize-1) {
 		x++
 	} else {
 		x--
 	}
-	if (y<controllerlib.YSize) {
+	if (y<controllerlib.YSize-1) {
 		y++
 	} else {
 		y--
