@@ -98,7 +98,7 @@ func evaluate() {
 		for j := range GameState[i] {
 			fmt.Print(GameState[i][j])
 		}
-		fmt.Println()
+		fmt.Println("EOL")
 	}
 }
 
