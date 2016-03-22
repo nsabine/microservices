@@ -117,10 +117,6 @@ func reset() {
 
 func evaluate() {
 	fmt.Println("Evaluting Game State")
-	for i := 0; i<controllerlib.XSize+2; i++ {
-		fmt.Print("---")
-	}
-	fmt.Println()
 	for i := range GameState {
 		fmt.Print("|")
 		for j := range GameState[i] {
@@ -128,9 +124,5 @@ func evaluate() {
 		}
 		fmt.Println("|")
 	}
-	for i := 0; i<controllerlib.XSize+2; i++ {
-		fmt.Print("---")
-	}
-	fmt.Println()
 }
 

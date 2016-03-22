@@ -101,6 +101,11 @@ func tick() {
 	} else {
 		x++
 	}
+	if nearestCop.YPos > me.YPos {
+		y--
+	} else {
+		y++
+	}
 
 	// make sure we didn't leave the board
 	if x<0 {
