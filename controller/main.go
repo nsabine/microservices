@@ -81,13 +81,13 @@ func update(r *kite.Request) (interface{}, error) {
                 return nil, err
         }
 
-        fmt.Printf("Update received from %s: %s'\n", params.Type, params.Name)
+        fmt.Printf("Update received from %s: %s'\n", params.Type, params.MyName)
 
         // Print a log on remote Kite.
         // This message will be printed on client's console.
         r.Client.Go("kite.log", fmt.Sprintf("Message from %s: Update received", r.LocalKite.Kite().Name))
 
-	GameState[params.XPos][params.YPos] = params.Name
+	GameState[params.XPos][params.YPos] = params.MyName
 
         return nil, nil
 }
