@@ -79,7 +79,7 @@ func tick() {
 		MyName: os.Getenv("HOSTNAME"),
 		Type: "Robber",
 		XPos: -1,
-		YPos: -1
+		YPos: -1,
 	})
 	if (x<controllerlib.XSize) {
 		x++
