@@ -87,7 +87,7 @@ func update(r *kite.Request) (interface{}, error) {
         // This message will be printed on client's console.
         r.Client.Go("kite.log", fmt.Sprintf("Message from %s: Update received", r.LocalKite.Kite().Name))
 
-	GameState[params.XPos][params.YPos] = params.MyName
+	GameState[params.XPos][params.YPos] = params
 
         return nil, nil
 }
@@ -100,10 +100,10 @@ func getState(r *kite.Request) (interface{}, error) {
 func reset() {
 	fmt.Println("Resetting Game State")
 	// Allocate the top-level slice.
-	GameState = make([][]string, YSize) // One row per unit of y.
+	GameState = make([][]controllerlib.UpdateRequest, YSize) // One row per unit of y.
 	// Loop over the rows, allocating the slice for each row.
 	for i := range GameState {
-		GameState[i] = make([]string, XSize)
+		GameState[i] = make([]controllerlib.UpdateRequest, XSize)
 		for j := range GameState[i] {
 			GameState[i][j] = controllerlib.UpdateRequest{"Empty","Empty",i,j}
 		}
