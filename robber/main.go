@@ -4,6 +4,8 @@ import (
 	"github.com/koding/kite"
 	"fmt"
 	"os"
+	"sync"
+	"log"
 	"github.com/bitly/go-nsq"
 )
 
@@ -11,7 +13,7 @@ func main() {
 	k := kite.New("robber", "1.0.0")
 	k.Config.Port = 6002
 	k.Config.DisableAuthentication = true
-	k.HandleFunc("robber", robber)
+	k.HandleFunc("hello", hello)
 	
 	fmt.Println("Robber staring kite")
 	k.Run()
