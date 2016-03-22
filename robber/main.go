@@ -109,16 +109,16 @@ func tick() {
 
 	// make sure we didn't leave the board
 	if x<0 {
-		x=0
+		x = controllerlib.XSize
 	}
 	if y<0 {
-		y=0
+		y = controllerlib.YSize
 	}
 	if x==controllerlib.XSize-1 {
-		x--
+		x = 0
 	}
 	if y==controllerlib.YSize-1 {
-		y--
+		y = 0
 	}
 	_, err = client.Tell("update", &controllerlib.UpdateRequest{
 		MyName: os.Getenv("HOSTNAME"),
