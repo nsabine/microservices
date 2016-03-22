@@ -118,10 +118,10 @@ func tick() {
 	if y<0 {
 		y = controllerlib.YSize-1
 	}
-	if x==controllerlib.XSize-1 {
+	if x>controllerlib.XSize-2 {
 		x = 0
 	}
-	if y==controllerlib.YSize-1 {
+	if y>controllerlib.YSize-2 {
 		y = 0
 	}
 	_, err = client.Tell("update", &controllerlib.UpdateRequest{
