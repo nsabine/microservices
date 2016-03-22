@@ -12,8 +12,8 @@ import (
 
 )
 
-var client kite.Client
-var k 	   kite.Kite
+var client *kite.Client
+var k 	   *kite.Kite
 
 func main() {
 	fmt.Println("Starting Robber")
