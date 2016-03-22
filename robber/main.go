@@ -7,12 +7,17 @@ import (
 	"sync"
 	"log"
 	"github.com/bitly/go-nsq"
+	"runtime"
 )
 
 func main() {
 	fmt.Println("Starting Robber")
+	runtime.GOMAXPROCS(2)
+	wg := &sync.WaitGroup{}
+	wg.Add(2)
 	go startKite()
 	go startMessaging()
+	wg.Wait()
 }
 
 func startKite() {
@@ -27,14 +32,11 @@ func startKite() {
 
 func startMessaging() {
 	fmt.Println("Robber configuring NSQ")
-	wg := &sync.WaitGroup{}
-	wg.Add(1)
 
 	config := nsq.NewConfig()
 	q, _ := nsq.NewConsumer("tick", "ch", config)
 	q.AddHandler(nsq.HandlerFunc(func(message *nsq.Message) error {
 		log.Printf("Got a message: %v", message)
-		wg.Done()
 		return nil
 	}))
 
@@ -43,7 +45,6 @@ func startMessaging() {
 		log.Panic("Could not connect")
 	}
 	fmt.Println("Robber starting NSQ")
-	wg.Wait()
 }
 
 func hello(r *kite.Request) (interface{}, error) {
