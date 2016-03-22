@@ -82,7 +82,7 @@ func getState(r *kite.Request) (interface{}, error) {
 func reset() {
 	fmt.Println("Resetting Game State")
 	// Allocate the top-level slice.
-	GameState := make([][]uint8, YSize) // One row per unit of y.
+	GameState = make([][]uint8, YSize) // One row per unit of y.
 	// Loop over the rows, allocating the slice for each row.
 	for i := range GameState {
 		GameState[i] = make([]uint8, XSize)
