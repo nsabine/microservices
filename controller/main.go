@@ -72,7 +72,7 @@ func hello(r *kite.Request) (interface{}, error) {
 	return nil, nil
 }
 
-func update(r *kite.Request) (error) {
+func update(r *kite.Request) (interface{}, error) {
         fmt.Println("Controller received state update")
 
         // Unmarshal method arguments.
@@ -89,12 +89,12 @@ func update(r *kite.Request) (error) {
 
 	GameState[params.XPos][params.YPos] = params
 
-        return nil
+        return nil, nil
 }
 
-func getState(r *kite.Request) ([][]controllerlib.UpdateRequest) {
+func getState(r *kite.Request) (interface{}, error) {
         fmt.Println("Controller received state request")
-        return GameState
+        return GameState, nil
 }
 
 func reset() {
