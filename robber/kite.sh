@@ -20,5 +20,5 @@ mkdir -p $KONTROL_CERTS
 env
 
 echo "Starting Robber Microservice"
-exec /go/bin/robber $@
+exec /go/bin/microservice $@
 
