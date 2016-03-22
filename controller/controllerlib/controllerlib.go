@@ -59,8 +59,8 @@ func WhereNearest(GameState [][]UpdateRequest, me UpdateRequest, mytype string) 
 }
 
 func CalculateDistance(me UpdateRequest, them UpdateRequest) (int) {
-	xDistance = int(math.Abs(float64(them.XPos - me.XPos)))
-	yDistance = int(math.Abs(float64(them.YPos - me.YPos)))
-	distance = math.Sqrt(math.Pow(xDistance, 2) + math.Pow(yDistance, 2))
+	xDistance := int(math.Abs(float64(them.XPos - me.XPos)))
+	yDistance := int(math.Abs(float64(them.YPos - me.YPos)))
+	distance := math.Sqrt(math.Pow(xDistance, 2) + math.Pow(yDistance, 2))
 	return int(distance)
 }
