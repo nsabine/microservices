@@ -10,7 +10,7 @@ RUN mkdir -p ${GOSRC}
 
 RUN go get github.com/koding/kite
 RUN go get github.com/bitly/go-nsq
-RUN go get github.com/nsabine/microservices/controller
+RUN go get github.com/nsabine/microservices/controller/controllerlib
 
 WORKDIR ${GOSRC}
 ADD ./*.go ${GOSRC}/
