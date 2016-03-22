@@ -10,8 +10,9 @@ import (
 )
 
 func main() {
-	go startMessaging()
+	fmt.Println("Starting Robber")
 	go startKite()
+	go startMessaging()
 }
 
 func startKite() {
