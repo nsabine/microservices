@@ -49,7 +49,7 @@ func startMessaging() {
 
 	for {
 		tick(w)
-		time.Sleep(time.Second * 1)
+		time.Sleep(time.Second * 10)
 	}	
 	w.Stop()
 
