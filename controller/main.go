@@ -105,7 +105,7 @@ func reset() {
 	for i := range GameState {
 		GameState[i] = make([]string, XSize)
 		for j := range GameState[i] {
-			GameState[i][j] = controllerlib.UpdateRequest{nil,"Empty",i,j}
+			GameState[i][j] = controllerlib.UpdateRequest{"","Empty",i,j}
 		}
 	}
 }
