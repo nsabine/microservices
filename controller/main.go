@@ -11,10 +11,13 @@ import (
 	"time"
 )
 
+var GameState [][]uint8
+var XSize = 25
+var YSize = 25
+
 func main() {
-	XSize := 25
-	YSize := 25
 	fmt.Println("Starting Controller")
+	reset()
 	runtime.GOMAXPROCS(2)
 	wg := &sync.WaitGroup{}
 	wg.Add(2)
@@ -70,7 +73,7 @@ func update(r *kite.Request) (interface{}, error) {
 
 func getState(r *kite.Request) (interface{}, error) {
         fmt.Println("Controller received state request")
-        return state, nil
+        return GameState, nil
 }
 
 func reset() {
