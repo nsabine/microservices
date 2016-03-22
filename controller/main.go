@@ -83,6 +83,9 @@ func reset() {
 	// Loop over the rows, allocating the slice for each row.
 	for i := range GameState {
 		GameState[i] = make([]uint8, XSize)
+		for j := range GameState[i] {
+			GameState[i][j] := 0
+		}
 	}
 }
 
