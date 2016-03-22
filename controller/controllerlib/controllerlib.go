@@ -1,5 +1,9 @@
 package controllerlib
 
+import (
+	"fmt"
+)
+
 type UpdateRequest struct {
 	MyName 	string
 	Type	string
@@ -25,8 +29,10 @@ func GetGridCode(r UpdateRequest) string {
 }
 
 func WhereAmI(GameState [][]UpdateRequest, me UpdateRequest) (int, int) {
+	fmt.Println("In controllerlib.WhereAmI")
         for i := range GameState {
                 for j := range GameState[i] {
+			fmt.Println("Comparing: ", me.MyName, GameState[i][jj].MyName)
 			if me.MyName == GameState[i][j].MyName {
 				return GameState[i][j].XPos, GameState[i][j].YPos
 			}
