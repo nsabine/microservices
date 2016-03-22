@@ -9,6 +9,7 @@ import (
 	"github.com/bitly/go-nsq"
 	"runtime"
 	"time"
+	"github.com/nsabine/microservices/controller/controllerlib"
 )
 
 var GameState [][]uint8
@@ -71,6 +72,21 @@ func hello(r *kite.Request) (interface{}, error) {
 
 func update(r *kite.Request) (interface{}, error) {
         fmt.Println("Controller received state update")
+
+        // Unmarshal method arguments.
+        var params controllerlib.UpdateRequest
+        if err := r.Args.One().Unmarshal(&params); err != nil {
+                return nil, err
+        }
+
+        fmt.Printf("Update received from '%s-%d'\n", params.Type, params.Id)
+
+        // Print a log on remote Kite.
+        // This message will be printed on client's console.
+        r.Client.Go("kite.log", fmt.Sprintf("Message from %s: Update received", r.LocalKite.Kite().Name))
+
+	GameState[params.XPos][params.YPos] = params.Id
+
         return nil, nil
 }
 
@@ -87,7 +103,7 @@ func reset() {
 	for i := range GameState {
 		GameState[i] = make([]uint8, XSize)
 		for j := range GameState[i] {
-			GameState[i][j] = 1
+			GameState[i][j] = 0
 		}
 	}
 }
@@ -98,7 +114,7 @@ func evaluate() {
 		for j := range GameState[i] {
 			fmt.Print(GameState[i][j])
 		}
-		fmt.Println("EOL")
+		fmt.Println()
 	}
 }
 
